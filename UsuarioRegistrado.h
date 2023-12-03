@@ -1,8 +1,9 @@
 #ifndef USUARIOREGISTRADO_H
 #define USUARIOREGISTRADO_H
+#include "usuario.h"
 #include <string>
 
-class UsuarioRegistrado{
+class UsuarioRegistrado : public Usuario{
     private:
         std::string nombre_;
         std::string apellidos_;
