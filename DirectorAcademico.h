@@ -19,3 +19,4 @@ class DirectorAcademico{
         std::string GetDepartamento(return Departamento_;)
 
 };
+#endif
