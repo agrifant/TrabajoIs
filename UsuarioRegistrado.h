@@ -1,3 +1,5 @@
+#ifndef USUARIOREGISTRADO_H
+#define USUARIOREGISTRADO_H
 #include <string>
 
 class UsuarioRegistrado{
@@ -14,3 +16,4 @@ class UsuarioRegistrado{
         char[9] GetDNI(return dni_;)
         std::string GetCorreo(return Correo_;)
 }
+#endif
