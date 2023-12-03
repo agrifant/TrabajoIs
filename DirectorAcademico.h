@@ -1,8 +1,9 @@
 #ifndef DIRECTORACADEMICO_H
 #define DIRECTORACADEMICO_H
+#include "usuario.h"
 #include <string>
 
-class DirectorAcademico{
+class DirectorAcademico : public Usuario{
     private:
         std::string nombre_;
         std::string apellidos_;
