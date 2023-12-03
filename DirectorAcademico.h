@@ -13,7 +13,7 @@ class DirectorAcademico : public Usuario{
         std::string departamento_;
 
     public:
-        DirectorAcademico(std::string IP_, std::string nombre, std::string apellidos, std::string carrera, char[9] dni, std::string correo, std::string departamento) :  
+        DirectorAcademico(std::string IP_, std::string nombre, std::string apellidos, std::string carrera, char[9] dni, std::string correo, std::string departamento) : Usuario(IP_) 
         {nombre_=nombre; apellidos_=apellidos; carrera_=carrera; dni_=dni; correo_=correo; departamento_=departamento;}
         std::string GetNombre(return nombre_;)
         std::string GetApellidos(return Apellidos_;)
