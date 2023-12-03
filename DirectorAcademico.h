@@ -1,3 +1,5 @@
+#ifndef DIRECTORACADEMICO_H
+#define DIRECTORACADEMICO_H
 #include <string>
 
 class DirectorAcademico{
