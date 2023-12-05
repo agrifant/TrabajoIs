@@ -22,8 +22,7 @@ class Actividad{
         Actividad(int id,std::string director_academico,std::string nombre="Undefined",std::string fecha="UNdefined", std::string tipo="Undefined", int aforo=0,
         std::string ponentes="Undefined", std::string tematica="Undefined", 
         std::string ubicacion="Undefined",std::string materialNecesario="Undefined",
-        int nParticipantes =0, std::list <std::string> lista_participantes={}): id_(id), director_acaemico_(director_academico), nombre_(nombre), fecha_(fecha),tipo_(tipo), aforo_(aforo),
-        ponentes_(ponentes),tematica_(tematica), ubicacion_(ubicacion),materialNecesario_(materialNecesario),nParticipantes_(nParticipantes), lista_participantes_(lista_participantes) {}
+        int nParticipantes =0, std::list <std::string> lista_participantes={});
         //todos los Gets:
         std::string GetTipo(){return tipo_;}
         std::string GetDirector_academico(){return director_acaemico_;}
