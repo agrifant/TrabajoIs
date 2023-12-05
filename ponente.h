@@ -1,13 +1,25 @@
 #ifndef PONENETE_H
 #define PONENETE_H
 #include <string>
+#include <list>
 
-class Ponenete{
+//todos los parámetros que los ponentes tienen
+struct ponente{
+    std::string nombre;
+    std::string apellidos;
+    char dni[9];
+    std::string correo;
+};
+
+class Ponenetes{
     private:
-        std::string nombre_;
-        std::string apellidos_;
-        char dni[9];
-        std::string correo_;
+        //id de la lista que estamos usando
+        int id_;
+        //lista que guarda los ponentes
+        std::list<ponente> list_ponentes_;
+    public:
+        Ponenetes(int id):id_(id){}
+        std::list<ponente> Getlist_ponentes(){return list_ponentes_;}
 };
 
 #endif
