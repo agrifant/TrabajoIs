@@ -33,24 +33,24 @@ int main(){
                 switch(hacer){
                     case 1:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 2:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 3:
                         
                         terminar=true;
-                        std::system("clear");
+                        
                         break;
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
                         std::this_thread::sleep_for(std::chrono::seconds(3));
-                        std::system("clear");
+                        
 
                 }
                 break;
@@ -67,38 +67,38 @@ int main(){
                 switch(hacer){
                     case 1:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 2:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 3:
 
-                        std::system("clear");
+                        
                         break;
                     
                     case 4:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 5:
 
-                        std::system("clear");
+                        
                         break;
                     case 6:
                         
                         terminar=true;
-                        std::system("clear");
+                        
                         break;
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
                         std::this_thread::sleep_for(std::chrono::seconds(3));
-                        std::system("clear");
+                        
 
                 }
                 break;
@@ -115,39 +115,39 @@ int main(){
                 switch(hacer){
                     case 1:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 2:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 3:
 
-                        std::system("clear");
+                        
                         break;
                     
                     case 4:
 
-                        std::system("clear");
+                        
                         break;
                     
                     case 5:
 
-                        std::system("clear");
+                        
                         break;
                         
                     case 6:
                         
                         terminar=true;
-                        std::system("clear");
+                        
                         break;
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
                         std::this_thread::sleep_for(std::chrono::seconds(3));
-                        std::system("clear");
+                        
 
                 }
                 break;
@@ -168,34 +168,34 @@ int main(){
                 switch(hacer){
                     case 1:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 2:
 
-                        std::system("clear");
+                        
                         break;
 
                     case 3:
 
-                        std::system("clear");
+                        
                         break;
                     
                     case 4:
 
-                        std::system("clear");
+                        
                         break;
                         
                     case 9:
                         
                         terminar=true;
-                        std::system("clear");
+                        
                         break;
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
                         std::this_thread::sleep_for(std::chrono::seconds(3));
-                        std::system("clear");
+                        
 
                 }
                 break;
