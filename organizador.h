@@ -23,6 +23,18 @@ class Organizador : public Usuario{
     bool MostrarActividad(int id);//funcion para "Activar" una actividad y que se muestre en el calendario de actividades a los usuarios
     bool CrearMailList();//funcion para crear una nueva maillist que el organizador utilizará para promover una actividad
     bool GenerarAsistencia(int id);//funcion para generar la asistencia de una actividad en concreto
+
+    //Getters
+    std::string GetNombre(){return this->Nombre;}
+    std::string GetApellidos(){return this->Apellidos;}
+    std::string GetCorreo(){return this->correo;}
+    char* GetDNI(){return this->DNI;}
+
+    //Setters
+    void SetNombre(std::string nombre_){this->Nombre=nombre_;}
+    void SetApellidos(std::string apellidos_){this->Apellidos=apellidos_;}
+    void SetCorreo(std::string correo_){this->correo=correo_;}
+    void SetDNI(char dni_[10]){memcpy(this->DNI,dni_,10);}
 };
 
 #endif
