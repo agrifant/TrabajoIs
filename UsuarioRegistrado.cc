@@ -2,7 +2,7 @@
 #include "UsuarioRegistrado.h"
 #include "actividad.h"
 #include <string>
-#include <list>
+#include <vector>
 
 bool inscribirse(char dni[9], Actividad p1){
     //primero vemos si hay hueco
@@ -10,14 +10,14 @@ bool inscribirse(char dni[9], Actividad p1){
         return false;
     }else{
         //vemos si ya no esta inscrito
-        std::list <std::string> lista_Participantes=p1.GetLista_participantes();
+        std::vector <std::string> lista_Participantes=p1.GetLista_participantes();
         for(auto & i:lista_Participantes){
             if(i==dni){
                 return false;
             }
         }
         // lo añadimos a la actividad
-        p1.añadirParticipantes(dni);
+        p1.anadirParticipantes(dni);
         return true;
     }
 }

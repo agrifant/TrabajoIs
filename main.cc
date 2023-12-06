@@ -2,6 +2,10 @@
 #include <cstdlib>
 #include <thread>
 #include <chrono>
+#include "usuario.h"
+#include "UsuarioRegistrado.h"
+#include "organizador.h"
+#include "DirectorAcademico.h"
 
 int main(){
     std::cout<<"Actividades Extraescolares:\n";
@@ -20,7 +24,7 @@ int main(){
     int hacer =0;
     bool terminar=false;
     while(terminar==false){
-
+    Usuario u("100.100.100");
         switch(status){
             case 0://Usuario no registrado
                 std::cout<<"¿Que desea hacer??\n";
@@ -32,7 +36,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-
+                        u.ConsultarActividades();
                         
                         break;
 
@@ -49,7 +53,7 @@ int main(){
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
-                        std::this_thread::sleep_for(std::chrono::seconds(3));
+                        //std::this_thread::sleep_for(std::chrono::seconds(3));
                         
 
                 }
@@ -66,7 +70,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-
+                        u.ConsultarActividades();
                         
                         break;
 
@@ -97,7 +101,7 @@ int main(){
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
-                        std::this_thread::sleep_for(std::chrono::seconds(3));
+                        //std::this_thread::sleep_for(std::chrono::seconds(3));
                         
 
                 }
@@ -114,7 +118,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-
+                        u.ConsultarActividades();
                         
                         break;
 
@@ -146,7 +150,7 @@ int main(){
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
-                        std::this_thread::sleep_for(std::chrono::seconds(3));
+                        //std::this_thread::sleep_for(std::chrono::seconds(3));
                         
 
                 }
@@ -167,7 +171,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-
+                        u.ConsultarActividades();
                         
                         break;
 
@@ -194,7 +198,7 @@ int main(){
                     
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
-                        std::this_thread::sleep_for(std::chrono::seconds(3));
+                        //std::this_thread::sleep_for(std::chrono::seconds(3));
                         
 
                 }
@@ -204,5 +208,6 @@ int main(){
             default:
                 std::cout<<"Se a producido un error, lamentamos las molestias";
         }
+        std::cout<<"\n\n\n\n";
     }
 }
