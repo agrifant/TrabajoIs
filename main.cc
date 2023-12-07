@@ -6,6 +6,52 @@
 #include "UsuarioRegistrado.h"
 #include "organizador.h"
 #include "DirectorAcademico.h"
+#include <string>
+#include <fstream>
+#include <vector>
+
+int status=0;
+std::string ip="100.100.100";
+
+UsuarioRegistrado *cliente;
+
+struct usuariosBd{
+    int poder;
+    std::string usuairo;
+    std::string password;
+};
+
+bool inciarSesion(std::string usuario, std::string password){
+    struct usuariosBd usus;
+    std::string linea;
+    std::vector<std::string>datos;
+    std::ifstream archivo("usuarios.txt");
+    if(!archivo.is_open()){
+        std::cout<<"Erro interno, sentimos las molestias\n";
+        return false;
+    }
+
+    struct usuariosBd i;
+    while(!archivo.eof()){
+        getline(archivo,linea);
+        datos=split(linea, '|');
+        i.poder=stoi(datos[0]);
+        i.usuairo=datos[1];
+        i.password=datos[2];
+
+        if(datos[1]==usuario && datos[2]==password){
+            status=stoi(datos[0]);
+            char dni[10];
+            strcpy(dni,datos[5].c_str());
+            cliente=new UsuarioRegistrado(ip,datos[3],datos[4],dni,datos[6]);
+            archivo.close();
+            return true;
+        }
+        
+    }
+    archivo.close();
+    return false;
+}
 
 int main(){
     std::cout<<"Actividades Extraescolares:\n";
@@ -19,12 +65,14 @@ int main(){
     //2-> Director Académico, se habre despues de haberse regisrtado
     //
     //3-> Organizador, se habre despuse de haberte registrado
-
-    int status=0;
     int hacer =0;
     bool terminar=false;
+    int accion;
+    bool a;
+    std::string usuario;
+    std::string password;
+    Usuario u(ip);
     while(terminar==false){
-    Usuario u("100.100.100");
         switch(status){
             case 0://Usuario no registrado
                 std::cout<<"¿Que desea hacer??\n";
@@ -41,8 +89,17 @@ int main(){
                         break;
 
                     case 2:
+                        std::cout<<"Dame le usuario\n";
+                        std::cin>>usuario;
+                        std::cout<<"Dame la contraseña\n";
+                        std::cin>>password;
+                        if(inciarSesion(usuario,password)==true){
+                            std::cout<<"Iniciando sesion\n";
+                        }else{
+                            std::cout<<"Error con la contraseña o usuario\n";
+                        }  
 
-                        
+
                         break;
 
                     case 3:
@@ -75,6 +132,13 @@ int main(){
                         break;
 
                     case 2:
+                        std::cout<<"En cual actividad se quiere inscribir: \n";
+                        std::cin>>accion;
+                        if(inscribirse(accion,cliente->GetDNI() )==false){
+                            std::cout<<("Hubo un error\n");
+                        }else{
+                            std::cout<<("Todo se realizo correctamente\n");
+                        }
 
                         
                         break;
@@ -90,7 +154,7 @@ int main(){
                         break;
 
                     case 5:
-
+                        status=0;
                         
                         break;
                     case 6:
