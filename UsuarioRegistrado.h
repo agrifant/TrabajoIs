@@ -15,13 +15,18 @@ class UsuarioRegistrado : public Usuario{
                
     public:
         UsuarioRegistrado(std::string IP_, std::string nombre, std::string apellidos, char dni[10], std::string correo) : Usuario(IP_)
-        {nombre_=nombre; apellidos_=apellidos; memcpy(dni,dni_,10); correo_=correo;}
+        {nombre_=nombre; apellidos_=apellidos; memcpy(dni_,dni,10); correo_=correo;}
         std::string GetNombre(){return nombre_;}
         std::string GetApellidos(){return apellidos_;}
         char* GetDNI(){return dni_;}
         std::string GetCorreo(){return correo_;}
-
-        //funcion de inscribirse(recibe el dni del usuario, el id de la actividad)
-        bool inscribirse(char dni[10], Actividad p1);
+        //los set
+        void SetNombre(std::string nombre){nombre_=nombre;}
+        void SetApellidos(std::string apellidos){apellidos_=apellidos;}
+        void SetDni(char * dni){strcpy(dni_,dni);}
+        void SetCorreo(std::string correo){correo_=correo;}
 };
+
+
+    bool inscribirse(int id, char dni[10]);
 #endif

@@ -53,10 +53,14 @@ class Actividad{
         void setListaParticipantes(std::vector<std::string> Lpanticipantes){Actividad::lista_participantes_=Lpanticipantes;}
         
 
+        Actividad operator=(const Actividad &a);
         //Funciones específicas
         void Mostrar_Calendario();
         void Mostrar_Info_Calendario();
         void anadirParticipantes(char dni[10]);
 };
+
+std::vector<Actividad> VectorConActividades();
+std::vector<std::string> split(std::string str, char pattern);
 
 #endif
