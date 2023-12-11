@@ -34,47 +34,15 @@ bool inscribirse(int id, char dni[10]){
                 return false;
             }
         }
-        // lo añadimos a la actividad
+        //vemos si la actividad esta activada
+        if(0==p1->GetActivar()){
+            return false;
+        }
+        // lo añadimos a la activida
         p1->anadirParticipantes(dni);
 
         //tenemos que guardar la informacion en el fichero
 
-        std::ofstream archivo("actividades.txt",std::ios::trunc);
-        if(!archivo.is_open()){
-            std::cout<<"Error interno, sentimos las molestias\n";
-            return false;
-        }
-        for(auto i=datos.begin(); i!=datos.end();i++){
-            archivo<<i->GetId()<<"|";
-            archivo<<i->GetDirector_academico()<<"|";
-            archivo<<i->GetNombre()<<"|";
-            archivo<<i->GetFecha()<<"|";
-            archivo<<i->GetTipo()<<"|";
-            archivo<<i->GetAforo()<<"|";
-            archivo<<i->GetPonentes()<<"|";
-            archivo<<i->GetTematica()<<"|";
-            archivo<<i->GetUbicacion()<<"|";
-            archivo<<i->GetMaterial_necesario()<<"|";
-            archivo<<i->GetnParticipantes()<<"|";
-            std::vector <std::string> lista=i->GetLista_participantes();
-            for(auto b=lista.begin(); b!=lista.end(); b++){
-                if(b==(lista.end()-1) && i==(datos.end()-1)){ 
-                    archivo<<*b;
-                }else{
-                    if(b==(lista.end()-1)){
-                        archivo<<*b<<"\n";
-                    }else{
-                        archivo<<*b<<"%";
-                    }
-                    
-                }
-                
-            }
-            
-        }
-
-        archivo.close();
-
-        return true;
+        return guardarVectorActividades(datos);
     }
 }
