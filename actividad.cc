@@ -7,10 +7,10 @@ Actividad::Actividad(int id,std::string director_academico,std::string nombre,
 std::string fecha, std::string tipo, int aforo,
 std::string ponentes, std::string tematica,
 std::string ubicacion,std::string materialNecesario,
-int nParticipantes , std::vector <std::string> lista_participantes): id_(id), 
+int nParticipantes , std::vector <std::string> lista_participantes, int activar): id_(id), 
 director_academico_(director_academico), nombre_(nombre), fecha_(fecha),tipo_(tipo), aforo_(aforo),
 ponentes_(ponentes),tematica_(tematica), ubicacion_(ubicacion),materialNecesario_(materialNecesario),
-nParticipantes_(nParticipantes), lista_participantes_(lista_participantes) {
+nParticipantes_(nParticipantes), lista_participantes_(lista_participantes), activar_(activar) {
     
     
 }
@@ -28,6 +28,7 @@ Actividad Actividad::operator=(const Actividad &a){
     materialNecesario_=a.materialNecesario_;
     nParticipantes_=a.nParticipantes_;
     lista_participantes_=a.lista_participantes_;
+    activar_=a.activar_;
     return *this;
 }
 
@@ -108,4 +109,31 @@ std::vector<std::string> split(std::string str, char pattern) {
     }
     
     return results;//Lo devolvemos
+
+}
+
+void MostrarActividad(){
+    std::vector<Actividad> actividades = VectorConActividades();
+    int id;
+
+    for(auto& i: actividades){
+        if(i.GetActivar()!=0 && i.GetActivar() !=1){
+            std::cout<<"Error al indicar si una actividad está habilitada al público.\n";
+        }
+        if(i.GetActivar()==0){
+            std::cout<<"La actividad " << i.GetNombre() << " con ID " << i.GetId() << " no está activada.\n";
+        }
+         if(i.GetActivar()==1){
+            std::cout<<"La actividad " << i.GetNombre() << " con ID " << i.GetId() << " está activada.\n";
+        }
+    }
+
+    std::cout<< "Escribe el Identificador de la actividad que quieres habilitar:\n";
+    std::cin>> id;
+
+    for(auto& i: actividades){
+        if(id==i.GetActivar()){
+            i.setActivar(1);
+        }
+    }
 }
