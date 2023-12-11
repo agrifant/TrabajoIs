@@ -156,8 +156,9 @@ std::vector<std::string> split(std::string str, char pattern) {
 
 void MostrarActividad(){
     std::vector<Actividad> actividades = VectorConActividades();
+    int opcion;
     int id;
-
+    
     for(auto& i: actividades){
         if(i.GetActivar()!=0 && i.GetActivar() !=1){
             std::cout<<"Error al indicar si una actividad está habilitada al público.\n";
@@ -170,6 +171,13 @@ void MostrarActividad(){
         }
     }
 
+    std::cout<< "Seleccione qué opción desea realizar\n:" << "1. Habilitar una actividad.\n" << "2. Deshabilitar una actividad.\n";
+    std::cin >> opcion;
+        
+    if(opcion!= 1 && opcion != 2){
+        std::cout << "Opción inválida. Seleccione otro número\n.";
+
+        if(opcion == 1){
     std::cout<< "Escribe el Identificador de la actividad que quiere habilitar:\n";
     std::cin>> id;
 
@@ -178,12 +186,16 @@ void MostrarActividad(){
             i.setActivar(1);
         }
     }
+}
+
+        if(opcion == 2){
         std::cout<< "Escribe el Identificador de la actividad que quiere deshabilitar:\n";
     std::cin>> id;
 
     for(auto& i: actividades){
         if(id==i.GetActivar()){
             i.setActivar(0);
+            }
         }
     }
 }
