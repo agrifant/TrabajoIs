@@ -170,12 +170,20 @@ void MostrarActividad(){
         }
     }
 
-    std::cout<< "Escribe el Identificador de la actividad que quieres habilitar:\n";
+    std::cout<< "Escribe el Identificador de la actividad que quiere habilitar:\n";
     std::cin>> id;
 
     for(auto& i: actividades){
         if(id==i.GetActivar()){
             i.setActivar(1);
+        }
+    }
+        std::cout<< "Escribe el Identificador de la actividad que quiere deshabilitar:\n";
+    std::cin>> id;
+
+    for(auto& i: actividades){
+        if(id==i.GetActivar()){
+            i.setActivar(0);
         }
     }
 }
