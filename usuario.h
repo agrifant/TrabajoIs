@@ -10,7 +10,7 @@ class Usuario{
     std::string IP;
     public:
     Usuario(std::string IP_){IP=IP_;};//constructor de la clase usuario
-    void ConsultarActividades();//funcion principal de la clase que será heredada a las demas clases de tipo usuario
+    void ConsultarActividades(int status);//funcion principal de la clase que será heredada a las demas clases de tipo usuario
     std::vector<std::string> split(std::string str, char pattern);//Funcion para separar la informacion de una linea String dependiendo de patrones
     
 };

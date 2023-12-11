@@ -84,7 +84,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-                        u.ConsultarActividades();
+                        u.ConsultarActividades(status);
                         
                         break;
 
@@ -127,7 +127,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-                        u.ConsultarActividades();
+                        u.ConsultarActividades(status);
                         
                         break;
 
@@ -182,7 +182,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-                        u.ConsultarActividades();
+                        u.ConsultarActividades(status);
                         
                         break;
 
@@ -235,7 +235,7 @@ int main(){
                 std::cin>>hacer;
                 switch(hacer){
                     case 1:
-                        u.ConsultarActividades();
+                        u.ConsultarActividades(status);
                         
                         break;
 

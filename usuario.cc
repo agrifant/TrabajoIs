@@ -8,7 +8,7 @@
 #include <vector>
 std::vector<std::string> split(std::string str, char pattern);
 
-void Usuario::ConsultarActividades() {
+void Usuario::ConsultarActividades(int status) {
     std::vector<Actividad> actividades;//vector en el que guardaremos las actividades del fichero
     std::string linea;//Guardaremos cada linea en esta variable
     std::vector<std::string> datos;//Para guardar la info separada de cada linea
@@ -36,11 +36,21 @@ void Usuario::ConsultarActividades() {
         auxiliar.setActivar(stoi(datos[11]));
         auxiliar.setListaParticipantes(ListaP);
 
-        if (auxiliar.GetActivar() == 1)
+        if (status > 1)
         {
+            std::cout<<"Estoy aqui"<<std::endl;
             actividades.push_back(auxiliar);//Añadimos la actividad guardada al vector de actividades
             contador++;
         }
+        else
+        {
+            if (auxiliar.GetActivar() == 1)
+            {
+                actividades.push_back(auxiliar);//Añadimos la actividad guardada al vector de actividades
+                contador++;
+            }
+        }
+
         
     }
     archivo.close();//Cerramos el archivo de lectura
