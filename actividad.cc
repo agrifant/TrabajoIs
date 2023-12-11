@@ -71,7 +71,7 @@ std::vector<Actividad> VectorConActividades(){
         contador++;
         getline(archivo,linea);//guardamos la info de una actividad en (linea)
         datos = split(linea,'|');//utilizamos esta funcion para separar el string cada vez que encuentre un |
-        std::vector<std::string> ListaP = split(datos[11],'%');//utilizamos esta funcion para separar el string cada vez que encuentre un %
+        std::vector<std::string> ListaP = split(datos[12],'%');//utilizamos esta funcion para separar el string cada vez que encuentre un %
 
         Actividad auxiliar;//Clase Actividad auxiliar para ir rellenando el vector de Actividades
         auxiliar.setId(stoi(datos[0]));//guardamos la info de cada atributo correspondiente, en el orden adecuado
@@ -85,6 +85,7 @@ std::vector<Actividad> VectorConActividades(){
         auxiliar.setUbicacion(datos[8]);
         auxiliar.setMatNecesario(datos[9]);
         auxiliar.setNParticipantes(stoi(datos[10]));
+        auxiliar.setActivar(stoi(datos[11]));
         auxiliar.setListaParticipantes(ListaP);
 
         actividades.push_back(auxiliar);//Añadimos la actividad guardada al vector de actividades
@@ -93,6 +94,47 @@ std::vector<Actividad> VectorConActividades(){
     actividades.shrink_to_fit();//Elimino los espacios del vector vacios
     return actividades;
 }
+
+bool guardarVectorActividades(std::vector<Actividad> datos){
+    std::ofstream archivo("actividades.txt",std::ios::trunc);
+        if(!archivo.is_open()){
+            std::cout<<"Error interno, sentimos las molestias\n";
+            return false;
+        }
+        for(auto i=datos.begin(); i!=datos.end();i++){
+            archivo<<i->GetId()<<"|";
+            archivo<<i->GetDirector_academico()<<"|";
+            archivo<<i->GetNombre()<<"|";
+            archivo<<i->GetFecha()<<"|";
+            archivo<<i->GetTipo()<<"|";
+            archivo<<i->GetAforo()<<"|";
+            archivo<<i->GetPonentes()<<"|";
+            archivo<<i->GetTematica()<<"|";
+            archivo<<i->GetUbicacion()<<"|";
+            archivo<<i->GetMaterial_necesario()<<"|";
+            archivo<<i->GetnParticipantes()<<"|";
+            archivo<<i->GetActivar()<<"|";
+            std::vector <std::string> lista=i->GetLista_participantes();
+            for(auto b=lista.begin(); b!=lista.end(); b++){
+                if(b==(lista.end()-1) && i==(datos.end()-1)){ 
+                    archivo<<*b;
+                }else{
+                    if(b==(lista.end()-1)){
+                        archivo<<*b<<"\n";
+                    }else{
+                        archivo<<*b<<"%";
+                    }
+                    
+                }
+                
+            }
+            
+        }
+
+        archivo.close();
+        return true;
+}
+        
 
 std::vector<std::string> split(std::string str, char pattern) {
     

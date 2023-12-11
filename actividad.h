@@ -67,6 +67,7 @@ class Actividad{
 
 std::vector<Actividad> VectorConActividades();
 std::vector<std::string> split(std::string str, char pattern);
+bool guardarVectorActividades(std::vector<Actividad> datos);
 
 
 #endif
