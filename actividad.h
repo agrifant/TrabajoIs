@@ -18,12 +18,14 @@ class Actividad{
         std::string materialNecesario_;
         int nParticipantes_;
         std::vector <std::string> lista_participantes_;
+        int activar_;
+
     public:
         Actividad(){};
         Actividad(int id,std::string director_academico,std::string nombre="Undefined",std::string fecha="UNdefined", std::string tipo="Undefined", int aforo=0,
         std::string ponentes="Undefined", std::string tematica="Undefined", 
         std::string ubicacion="Undefined",std::string materialNecesario="Undefined",
-        int nParticipantes =0, std::vector <std::string> lista_participantes={});
+        int nParticipantes =0, std::vector <std::string> lista_participantes={}, int activar=0);
         //todos los Gets:
         int GetId(){return id_;}
         std::string GetTipo(){return tipo_;}
@@ -37,6 +39,7 @@ class Actividad{
         std::string GetMaterial_necesario(){return materialNecesario_;}
         std::vector <std::string> GetLista_participantes(){return lista_participantes_;}
         int GetnParticipantes(){return nParticipantes_;}
+        int GetActivar(){return activar_;}
         
         //Todos los setters
         void setId(int id){Actividad::id_=id;}
@@ -51,6 +54,7 @@ class Actividad{
         void setMatNecesario(std::string matnec){Actividad::materialNecesario_=matnec;}
         void setNParticipantes(int nparticipantes){Actividad::nParticipantes_=nparticipantes;}
         void setListaParticipantes(std::vector<std::string> Lpanticipantes){Actividad::lista_participantes_=Lpanticipantes;}
+        void setActivar(int activar){Actividad::activar_=activar;}
         
 
         Actividad operator=(const Actividad &a);
@@ -58,9 +62,11 @@ class Actividad{
         void Mostrar_Calendario();
         void Mostrar_Info_Calendario();
         void anadirParticipantes(char dni[10]);
+        void MostrarActividad();
 };
 
 std::vector<Actividad> VectorConActividades();
 std::vector<std::string> split(std::string str, char pattern);
+
 
 #endif
