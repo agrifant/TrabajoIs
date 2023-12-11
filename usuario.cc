@@ -17,10 +17,9 @@ void Usuario::ConsultarActividades() {
     int elec;//Para despues elegir que actividad queremos ver su informacion
     while(!archivo.eof())//leemos el archivo hasta llegar a la ultima linea
     {
-        contador++;
         getline(archivo,linea);//guardamos la info de una actividad en (linea)
         datos = split(linea,'|');//utilizamos esta funcion para separar el string cada vez que encuentre un |
-        std::vector<std::string> ListaP = split(datos[11],'%');//utilizamos esta funcion para separar el string cada vez que encuentre un %
+        std::vector<std::string> ListaP = split(datos[12],'%');//utilizamos esta funcion para separar el string cada vez que encuentre un %
 
         Actividad auxiliar;//Clase Actividad auxiliar para ir rellenando el vector de Actividades
         auxiliar.setId(stoi(datos[0]));//guardamos la info de cada atributo correspondiente, en el orden adecuado
@@ -34,9 +33,15 @@ void Usuario::ConsultarActividades() {
         auxiliar.setUbicacion(datos[8]);
         auxiliar.setMatNecesario(datos[9]);
         auxiliar.setNParticipantes(stoi(datos[10]));
+        auxiliar.setActivar(stoi(datos[11]));
         auxiliar.setListaParticipantes(ListaP);
 
-        actividades.push_back(auxiliar);//Añadimos la actividad guardada al vector de actividades
+        if (auxiliar.GetActivar() == 1)
+        {
+            actividades.push_back(auxiliar);//Añadimos la actividad guardada al vector de actividades
+            contador++;
+        }
+        
     }
     archivo.close();//Cerramos el archivo de lectura
     actividades.shrink_to_fit();//Elimino los espacios del vector vacios
