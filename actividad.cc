@@ -95,6 +95,18 @@ std::vector<Actividad> VectorConActividades(){
     return actividades;
 }
 
+std::vector<Actividad> VectorConActividadesActivas(){
+    std::vector<Actividad> todasActividades=VectorConActividades();
+    std::vector <Actividad> actividadesActivas;
+    for(auto & i:todasActividades){
+        if(i.GetActivar()==1){
+            actividadesActivas.push_back(i);
+        }
+    }
+    return actividadesActivas;
+
+}
+
 bool guardarVectorActividades(std::vector<Actividad> datos){
     std::ofstream archivo("actividades.txt",std::ios::trunc);
         if(!archivo.is_open()){
