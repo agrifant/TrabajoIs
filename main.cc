@@ -132,6 +132,7 @@ int main(){
                         break;
 
                     case 2:
+                    u.ConsultarActividades(status);
                         std::cout<<"En cual actividad se quiere inscribir: \n";
                         std::cin>>accion;
                         if(inscribirse(accion,cliente->GetDNI() )==false){

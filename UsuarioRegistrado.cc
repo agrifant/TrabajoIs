@@ -17,9 +17,13 @@ bool inscribirse(int id_, char dni[10]){
     for(auto i=datos.begin(); cont!=id_ ;i++){
         if(i->GetActivar()==0){
             id++;
+        }else{
+            cont++;
         }
-        cont++;
+        
     }
+    
+    std::cout<<"el id de la actividad es: "<<id<<"\n";
 
 
     Actividad vacio(0,"Nada");
