@@ -7,16 +7,24 @@
 #include <string>
 
 TEST(UsuarioRegistrado,Inscribirse1){
-    char dni[10]="77777777Y";
+    char dni[10]="57777777Y";
     UsuarioRegistrado alumno("100/100/100","Carlos","ENriquez",dni,"correo.@gmail.com");
-    EXPECT_TRUE(inscribirse(1,alumno.GetDNI()));
-    EXPECT_FALSE(inscribirse(1,alumno.GetDNI()));
-    EXPECT_FALSE(inscribirse(100,alumno.GetDNI()));
+    EXPECT_TRUE(alumno.inscribirse(1));
+    EXPECT_FALSE(alumno.inscribirse(1));
+    EXPECT_TRUE(alumno.inscribirse(2));
+    EXPECT_TRUE(alumno.inscribirse(3));
+    EXPECT_FALSE(alumno.inscribirse(2));
+    EXPECT_FALSE(alumno.inscribirse(3));
+    EXPECT_FALSE(alumno.inscribirse(-1));
+    EXPECT_FALSE(alumno.inscribirse(100));
 
 }
 
-TEST(UsuarioRegistrado, Inscribirse2){
-    char dni[10]="77777777Y";
+TEST(UsuarioRegistrado, geters){
+    char dni[10]="47777777Y";
     UsuarioRegistrado alumno("100/100/100","Carlos","ENriquez",dni,"correo.@gmail.com");
-    EXPECT_TRUE(inscribirse(1,alumno.GetDNI()));
+    EXPECT_EQ("Carlos", alumno.GetNombre());
+    EXPECT_EQ("ENriquez", alumno.GetApellidos());
+    EXPECT_STREQ("47777777Y", alumno.GetDNI());
+    EXPECT_EQ("correo.@gmail.com", alumno.GetCorreo());
 }

@@ -25,8 +25,6 @@ class UsuarioRegistrado : public Usuario{
         void SetApellidos(std::string apellidos){apellidos_=apellidos;}
         void SetDni(char * dni){strcpy(dni_,dni);}
         void SetCorreo(std::string correo){correo_=correo;}
+        bool inscribirse(int id);
 };
-
-
-    bool inscribirse(int id, char dni[10]);
 #endif

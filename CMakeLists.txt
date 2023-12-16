@@ -42,3 +42,4 @@ add_dependencies(inscribirse-test programa)
 # Configurar el comando de prueba para ejecutar los tests
 add_test(NAME inscribirse-gtests COMMAND inscribirse-test)
 
+

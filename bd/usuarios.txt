@@ -1,0 +1,5 @@
+1|z|z|nombre|apellidos|11111111T|correo
+2|a|a|nombre|apellidos|carrera|2111111T|correo||departamento
+1|b|b|nombre|apellidos|31111111T|correo
+3|c|c|nombre|apellidos|correo|41111111T
+1|d|d|nombre|apellidos|51111111T|correo

@@ -14,6 +14,8 @@ int status=0;
 std::string ip="100.100.100";
 
 UsuarioRegistrado *cliente;
+DirectorAcademico *cliente2;
+Organizador * cliente3;
 
 struct usuariosBd{
     int poder;
@@ -25,7 +27,7 @@ bool inciarSesion(std::string usuario, std::string password){
     struct usuariosBd usus;
     std::string linea;
     std::vector<std::string>datos;
-    std::ifstream archivo("usuarios.txt");
+    std::ifstream archivo("../bd/usuarios.txt");
     if(!archivo.is_open()){
         std::cout<<"Erro interno, sentimos las molestias\n";
         return false;
@@ -42,8 +44,19 @@ bool inciarSesion(std::string usuario, std::string password){
         if(datos[1]==usuario && datos[2]==password){
             status=stoi(datos[0]);
             char dni[10];
-            strcpy(dni,datos[5].c_str());
-            cliente=new UsuarioRegistrado(ip,datos[3],datos[4],dni,datos[6]);
+            if((stoi(datos[0])==1)){
+                strcpy(dni,datos[5].c_str());
+                cliente=new UsuarioRegistrado(ip,datos[3],datos[4],dni,datos[6]);
+                std::cout<<cliente->GetDNI()<<"\n";
+            }
+            if((stoi(datos[0])==2)){
+                strcpy(dni,datos[6].c_str());
+                cliente2 =new DirectorAcademico(ip,datos[3],datos[4],datos[5],dni,datos[7], datos[8]);
+            }
+            if((stoi(datos[0])==3)){
+                strcpy(dni,datos[6].c_str());
+                cliente3= new Organizador(ip,datos[3],datos[4],datos[5],dni);
+            }            
             archivo.close();
             return true;
         }
@@ -132,10 +145,10 @@ int main(){
                         break;
 
                     case 2:
-                    u.ConsultarActividades(status);
                         std::cout<<"En cual actividad se quiere inscribir: \n";
                         std::cin>>accion;
-                        if(inscribirse(accion,cliente->GetDNI() )==false){
+                        
+                        if(cliente->inscribirse(accion)==false){
                             std::cout<<("Hubo un error\n");
                         }else{
                             std::cout<<("Todo se realizo correctamente\n");
@@ -204,7 +217,7 @@ int main(){
                     
                     case 5:
 
-                        
+                        status=0;
                         break;
                         
                     case 6:
@@ -253,6 +266,9 @@ int main(){
                     case 4:
 
                         
+                        break;
+                    case 8:
+                        status=0;
                         break;
                         
                     case 9:

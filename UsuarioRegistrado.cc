@@ -7,14 +7,20 @@
 #include <iostream>
 #include <fstream>
 
-bool inscribirse(int id_, char dni[10]){
+bool UsuarioRegistrado::inscribirse(int id_){
     std::vector <Actividad> datos=VectorConActividades();
 
     std::vector<Actividad> lista_activos= VectorConActividadesActivas();
-    //aberiguamos la actividad que nos ha enviado
     int id=id_;
+    //vemos si la actividad existe enrtre las catividades activas
+    if(id>actividadesActivas()||id<=0){
+        std::cout<<"Esa actividad no existe\n";
+        return false;
+    }
+
+    //aberiguamos la actividad que nos ha enviado
     int cont=0;
-    for(auto i=datos.begin(); cont!=id_ ;i++){
+    for(auto i=datos.begin(); cont!=id_ && datos.end()!=i ;i++){
         if(i->GetActivar()==0){
             id++;
         }else{
@@ -22,9 +28,6 @@ bool inscribirse(int id_, char dni[10]){
         }
         
     }
-    
-    std::cout<<"el id de la actividad es: "<<id<<"\n";
-
 
     Actividad vacio(0,"Nada");
     Actividad *p1=&vacio;
@@ -47,7 +50,7 @@ bool inscribirse(int id_, char dni[10]){
 
         //vemos si ya no esta inscrito
         for(auto & i:lista_Participantes){
-            if(i==dni){
+            if(i==dni_){
                 std::cout<<"Ya inscrito\n";
                 return false;
             }
@@ -58,7 +61,7 @@ bool inscribirse(int id_, char dni[10]){
 ;            return false;
         }
         // lo añadimos a la activida
-        p1->anadirParticipantes(dni);
+        p1->anadirParticipantes(dni_);
 
         //tenemos que guardar la informacion en el fichero
 
