@@ -1,5 +1,0 @@
-1|pacoperez|rodrigo|Paco|Perez Rodrigo|11111111A|correo
-1|a|a|Fernando|Lopez Bellido|2111111B|correo
-1|b|b|Antonio|Rodriguez Lopez|31111111C|correo
-2|c|c|Ana|Predosa RERE|41111111D|correo
-3|d|d|Maria|Nunez Fernandez|51111111E|correo
