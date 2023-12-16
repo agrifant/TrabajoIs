@@ -1,0 +1,6 @@
+1|Fernando|programacion|12/05/2023|seminario|5|Gabriel|prog|universidad|ordenador|0|0|
+2|Aitor|Economia|13/05/2023|Taller|5|Pedro|Finanzas|universidad|ordenador|1|1|0%57777777Y
+3|Carlos|Empresa|14/06/2023|Practica|5|Maria|Trabajo|Aulario|ordenador|0|0|
+4|Carlos|fefefef|14/06/2023|Taller|5|PEPE|Trabajo|Aulario|ordenador|1|1|%57777777Y
+5|Carlos|grgrgrg|14/06/2023|Practica|5|Maria|Ingenieria|Aulario|ordenador|0|0|
+6|Carlos|hththth|14/06/2023|seminario|5|RaFA|Trabajo|Aulario|ordenador|1|1|%57777777Y
