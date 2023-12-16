@@ -263,7 +263,10 @@ int main(){
                         
                         break;
                     
-                    case 4:
+                    case 7:
+                        std::cout<<"En cual actividad quiere obtener la asistencia: \n";
+                        std::cin>>accion;
+                        cliente3->GenerarAsistencia(accion);
 
                         
                         break;
