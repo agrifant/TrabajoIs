@@ -14,6 +14,7 @@ class UsuarioRegistrado : public Usuario{
         std::string correo_;
                
     public:
+        UsuarioRegistrado():Usuario("1"){};
         UsuarioRegistrado(std::string IP_, std::string nombre, std::string apellidos, char dni[10], std::string correo) : Usuario(IP_)
         {nombre_=nombre; apellidos_=apellidos; memcpy(dni_,dni,10); correo_=correo;}
         std::string GetNombre(){return nombre_;}
