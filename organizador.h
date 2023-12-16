@@ -14,6 +14,7 @@ class Organizador : public Usuario{
     char DNI[10];
     
     public:
+    Organizador(std::string ip):Usuario(ip){};
     Organizador(std::string IP_,std::string Nombre_,std::string Apellidos_,std::string correo_,char DNI_[10]) : Usuario(IP_)
     {Nombre=Nombre_;Apellidos=Apellidos_;memcpy(DNI,DNI_,10);};//constructor de la clase ORGANIZADOR
     
