@@ -28,4 +28,7 @@ class UsuarioRegistrado : public Usuario{
         void SetCorreo(std::string correo){correo_=correo;}
         bool inscribirse(int id);
 };
+
+
+    
 #endif

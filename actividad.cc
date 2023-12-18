@@ -63,7 +63,7 @@ std::vector<Actividad> VectorConActividades(){
     std::vector<Actividad> actividades;//vector en el que guardaremos las actividades del fichero
     std::string linea;//Guardaremos cada linea en esta variable
     std::vector<std::string> datos;//Para guardar la info separada de cada linea
-    std::ifstream archivo("../bd/actividades.txt");//Abrimos el archivo para leer su informacion
+    std::ifstream archivo("actividades.txt");//Abrimos el archivo para leer su informacion
     int contador = 0;//contador que nos servirá despues para contar el numero de actividades
     int elec;//Para despues elegir que actividad queremos ver su informacion
     while(!archivo.eof())//leemos el archivo hasta llegar a la ultima linea
@@ -95,32 +95,8 @@ std::vector<Actividad> VectorConActividades(){
     return actividades;
 }
 
-std::vector<Actividad> VectorConActividadesActivas(){
-    std::vector<Actividad> todasActividades=VectorConActividades();
-    std::vector <Actividad> actividadesActivas;
-    for(auto & i:todasActividades){
-        if(i.GetActivar()==1){
-            actividadesActivas.push_back(i);
-        }
-    }
-    return actividadesActivas;
-
-}
-
-int actividadesActivas(){
-    std::vector<Actividad> todasActividades=VectorConActividades();
-    int cont=0;
-    for(auto & i:todasActividades){
-        if(i.GetActivar()==1){
-            cont++;
-        }
-    }
-    return cont;
-
-}
-
 bool guardarVectorActividades(std::vector<Actividad> datos){
-    std::ofstream archivo("../bd/actividades.txt",std::ios::trunc);
+    std::ofstream archivo("actividades.txt",std::ios::trunc);
         if(!archivo.is_open()){
             std::cout<<"Error interno, sentimos las molestias\n";
             return false;
@@ -158,7 +134,31 @@ bool guardarVectorActividades(std::vector<Actividad> datos){
         archivo.close();
         return true;
 }
-        
+
+ std::vector<Actividad> VectorConActividadesActivas(){
+    std::vector<Actividad> todasActividades=VectorConActividades();
+    std::vector <Actividad> actividadesActivas;
+    for(auto & i:todasActividades){
+        if(i.GetActivar()==1){
+            actividadesActivas.push_back(i);
+        }
+    }
+    return actividadesActivas;
+
+}
+
+int actividadesActivas(){
+    std::vector<Actividad> todasActividades=VectorConActividades();
+    int cont=0;
+    for(auto & i:todasActividades){
+        if(i.GetActivar()==1){
+            cont++;
+        }
+    }
+    return cont;
+
+}
+       
 
 std::vector<std::string> split(std::string str, char pattern) {
     
@@ -180,9 +180,8 @@ std::vector<std::string> split(std::string str, char pattern) {
 
 void MostrarActividad(){
     std::vector<Actividad> actividades = VectorConActividades();
-    int opcion;
     int id;
-    
+
     for(auto& i: actividades){
         if(i.GetActivar()!=0 && i.GetActivar() !=1){
             std::cout<<"Error al indicar si una actividad está habilitada al público.\n";
@@ -195,14 +194,7 @@ void MostrarActividad(){
         }
     }
 
-    std::cout<< "Seleccione qué opción desea realizar\n:" << "1. Habilitar una actividad.\n" << "2. Deshabilitar una actividad.\n";
-    std::cin >> opcion;
-        
-    if(opcion!= 1 && opcion != 2){
-        std::cout << "Opción inválida. Seleccione otro número\n.";
-
-        if(opcion == 1){
-    std::cout<< "Escribe el Identificador de la actividad que quiere habilitar:\n";
+    std::cout<< "Escribe el Identificador de la actividad que quieres habilitar:\n";
     std::cin>> id;
 
     for(auto& i: actividades){
@@ -210,17 +202,4 @@ void MostrarActividad(){
             i.setActivar(1);
         }
     }
-}
-
-        if(opcion == 2){
-        std::cout<< "Escribe el Identificador de la actividad que quiere deshabilitar:\n";
-    std::cin>> id;
-
-    for(auto& i: actividades){
-        if(id==i.GetActivar()){
-            i.setActivar(0);
-            }
-        }
-    }
-}
 }

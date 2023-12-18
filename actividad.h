@@ -18,7 +18,7 @@ class Actividad{
         std::string materialNecesario_;
         int nParticipantes_;
         std::vector <std::string> lista_participantes_;
-        int activar_;//si es 0, no esta activa, si es 1, si esta activa
+        int activar_;
 
     public:
         Actividad(){};
@@ -70,6 +70,5 @@ std::vector<std::string> split(std::string str, char pattern);
 bool guardarVectorActividades(std::vector<Actividad> datos);
 std::vector<Actividad> VectorConActividadesActivas();
 int actividadesActivas();
-
 
 #endif
