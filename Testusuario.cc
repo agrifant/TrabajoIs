@@ -12,9 +12,9 @@ std::vector<std::string> resPrueba2;
 std::vector<std::string> resPrueba3;
 std::string lineaPrueba="Hola,mellamo|gabriel/lele,";
 
-resPrueba1 = u.split(lineaPrueba,',');
-resPrueba2 = u.split(lineaPrueba,'|');
-resPrueba3 = u.split(lineaPrueba,'/');
+resPrueba1 = usertest.split(lineaPrueba,',');
+resPrueba2 = usertest.split(lineaPrueba,'|');
+resPrueba3 = usertest.split(lineaPrueba,'/');
 
 EXPECT_EQ("Hola", resPrueba1[0]);
 EXPECT_EQ("", resPrueba1[2]);
