@@ -291,9 +291,13 @@ int main(){
             default:
                 std::cout<<"Se a producido un error, lamentamos las molestias\n";
         }
-        std::cout<<"Pulsa cualquier tecla para continuar\n";
-        std::cin.get();
-        std::cin.get();
-        std::cout<<"\n\n";
+        if(terminar!=true){
+            std::cout<<"Pulsa cualquier tecla para continuar\n";
+            std::cin.get();
+            std::cin.get();
+            std::cout<<"\n\n";
+        }else{
+            std::cout<<"Cerrando programa\n";
+        }
     }
 }
