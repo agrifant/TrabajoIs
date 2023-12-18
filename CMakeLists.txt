@@ -21,6 +21,7 @@ add_executable(programa
     Testusuario.cc
     TestOrganizador.cc
     usuario.cc
+    organizador.cc
     UsuarioRegistrado.cc
 )
 
@@ -46,6 +47,7 @@ add_executable(organizador-test
     TestOrganizador.cc
     actividad.cc
     usuario.cc
+    organizador.cc
     UsuarioRegistrado.cc
 )
 
