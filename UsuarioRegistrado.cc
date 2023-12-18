@@ -9,7 +9,6 @@
 
 bool UsuarioRegistrado::inscribirse(int id_){
     std::vector <Actividad> datos=VectorConActividades();
-
     std::vector<Actividad> lista_activos= VectorConActividadesActivas();
     int id=id_;
     //vemos si la actividad existe enrtre las catividades activas
@@ -17,7 +16,6 @@ bool UsuarioRegistrado::inscribirse(int id_){
         std::cout<<"Esa actividad no existe\n";
         return false;
     }
-
     //aberiguamos la actividad que nos ha enviado
     int cont=0;
     for(auto i=datos.begin(); cont!=id_ && datos.end()!=i ;i++){
@@ -28,7 +26,6 @@ bool UsuarioRegistrado::inscribirse(int id_){
         }
         
     }
-
     Actividad vacio(0,"Nada");
     Actividad *p1=&vacio;
     for(auto & i: datos){
