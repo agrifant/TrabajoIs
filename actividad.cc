@@ -63,7 +63,7 @@ std::vector<Actividad> VectorConActividades(){
     std::vector<Actividad> actividades;//vector en el que guardaremos las actividades del fichero
     std::string linea;//Guardaremos cada linea en esta variable
     std::vector<std::string> datos;//Para guardar la info separada de cada linea
-    std::ifstream archivo("actividades.txt");//Abrimos el archivo para leer su informacion
+    std::ifstream archivo("../bd/actividades.txt");//Abrimos el archivo para leer su informacion
     int contador = 0;//contador que nos servirá despues para contar el numero de actividades
     int elec;//Para despues elegir que actividad queremos ver su informacion
     while(!archivo.eof())//leemos el archivo hasta llegar a la ultima linea
@@ -96,7 +96,7 @@ std::vector<Actividad> VectorConActividades(){
 }
 
 bool guardarVectorActividades(std::vector<Actividad> datos){
-    std::ofstream archivo("actividades.txt",std::ios::trunc);
+    std::ofstream archivo("../bd/actividades.txt",std::ios::trunc);
         if(!archivo.is_open()){
             std::cout<<"Error interno, sentimos las molestias\n";
             return false;

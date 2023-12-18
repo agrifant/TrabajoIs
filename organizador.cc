@@ -23,8 +23,7 @@ bool Organizador::GenerarAsistencia(int id)
         {
             check=true;
             dnisParticipantes = datos[i].GetLista_participantes();
-
-            std::ifstream archivo("usuarios.txt");
+            std::ifstream archivo("../bd/usuarios.txt");
             while(!archivo.eof())//leemos el archivo hasta llegar a la ultima linea
             {
             //contador++;

@@ -88,7 +88,7 @@ int main(){
     while(terminar==false){
         switch(status){
             case 0://Usuario no registrado
-                std::cout<<"¿Que desea hacer??\n";
+                std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
                 std::cout<<"2. Iniciar sesión\n";//funcion de iniciar sesión
                 std::cout<<"3. Salir de la aplicación\n\n";
@@ -130,7 +130,7 @@ int main(){
                 break;
             
             case 1://Usuario registrado
-                std::cout<<"¿Que desea hacer??\n";
+                std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
                 std::cout<<"2. Inscribirse\n";
                 std::cout<<"4. Anular asistencia\n";
@@ -186,7 +186,7 @@ int main(){
                 break;
             
             case 2://Director academico
-                std::cout<<"¿Que desea hacer??\n";
+                std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
                 std::cout<<"2. Generar actividades\n";
                 std::cout<<"4. Editar Actividades\n";
@@ -235,7 +235,7 @@ int main(){
                 break;
 
             case 3://Organizador
-                std::cout<<"¿Que desea hacer??\n";
+                std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
                 std::cout<<"2. Crear actividad\n";
                 std::cout<<"3. Actualizar Acividad\n";
@@ -287,11 +287,13 @@ int main(){
 
                 }
                 break;
-                break;
             
             default:
-                std::cout<<"Se a producido un error, lamentamos las molestias";
+                std::cout<<"Se a producido un error, lamentamos las molestias\n";
         }
-        std::cout<<"\n\n\n\n";
+        std::cout<<"Pulsa cualquier tecla para continuar\n";
+        std::cin.get();
+        std::cin.get();
+        std::cout<<"\n\n";
     }
 }
