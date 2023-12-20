@@ -28,9 +28,9 @@ bool inciarSesion(std::string usuario, std::string password){
     struct usuariosBd usus;
     std::string linea;
     std::vector<std::string>datos;
-    std::ifstream archivo("bd/usuarios.txt");
+    std::ifstream archivo("../bd/usuarios.txt");
     if(!archivo.is_open()){
-        std::cout<<"Erro interno, sentimos las molestias\n";
+        std::cout<<"Error interno, sentimos las molestias\n";
         return false;
     }
 
@@ -91,6 +91,7 @@ int main(){
     while(terminar==false){
         std::vector<Actividad> lista_activos= VectorConActividadesActivas();
         int s=1;
+        std::vector<Actividad> actividades= VectorConActividades();
         switch(status){
             case 0://Usuario no registrado
                 std::cout<<"Eliga una opción:\n";
@@ -161,10 +162,7 @@ int main(){
                         std::cin>>accion;
                         if(cliente->inscribirse(accion)==true){
                             std::cout<<"Inscripcion realizada con exito \n";
-                        }
-                        
-
-                        
+                        }   
                         break;
 
                     case 3:
@@ -203,11 +201,6 @@ int main(){
                     case 2:
                         status=0;
                         break;
-                    
-                    case 2:
-
-                        status=0;
-                        break;
                         
                     case 3:
                         terminar=true;
@@ -227,7 +220,6 @@ int main(){
                 //std::cout<<"2. Crear actividad\n";
                 //std::cout<<"3. Actualizar Acividad\n";
                 //std::cout<<"4. Eliminar Actividad\n";
-                std::cout<<"2. Activar actividad\n";
                 //std::cout<<"6. Crear MailLit\n";
                 std::cout<<"2. Mostrar actividad\n";
                 std::cout<<"3. Generar fichero asistencia\n";
@@ -244,14 +236,6 @@ int main(){
                     case 2:
                         MostrarActividad();
                         break;
-
-                    case 3:
-                    std::cout<<"FUNCION PARA MOSTAR ACTIVIDADES: \n";
-                        
-                        break;
-
-
-                    
                     case 3:
                         std::cout<<"En cual actividad quiere obtener la asistencia: \n";
                         for(auto& i: actividades)
