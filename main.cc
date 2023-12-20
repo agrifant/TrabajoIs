@@ -48,17 +48,17 @@ bool inciarSesion(std::string usuario, std::string password){
             if((stoi(datos[0])==1)){
                 strcpy(dni,datos[5].c_str());
                 cliente=new UsuarioRegistrado(ip,datos[3],datos[4],dni,datos[6]);
-                std::cout<<"Buenas "<<cliente->GetNombre()<<"\n";
+                std::cout<<"\nBuenas "<<cliente->GetNombre()<<"\n";
             }
             if((stoi(datos[0])==2)){
                 strcpy(dni,datos[6].c_str());
                 cliente2 =new DirectorAcademico(ip,datos[3],datos[4],datos[5],dni,datos[7], datos[8]);
-                std::cout<<"Buenas director academico "<<cliente2->GetNombre()<<"\n";
+                std::cout<<"\nBuenas director academico "<<cliente2->GetNombre()<<"\n";
             }
             if((stoi(datos[0])==3)){
                 strcpy(dni,datos[6].c_str());
                 cliente3= new Organizador(ip,datos[3],datos[4],datos[5],dni);
-                std::cout<<"Buenas organizador "<<cliente3->GetNombre()<<"\n";
+                std::cout<<"\nBuenas organizador "<<cliente3->GetNombre()<<"\n";
             }            
             archivo.close();
             return true;
@@ -111,9 +111,7 @@ int main(){
                         std::cin>>usuario;
                         std::cout<<"Dame la contraseña\n";
                         std::cin>>password;
-                        if(inciarSesion(usuario,password)==true){
-                            std::cout<<"Iniciando sesion\n";
-                        }else{
+                        if(inciarSesion(usuario,password)==false){
                             std::cout<<"Error con la contraseña o usuario\n";
                         }  
 
@@ -138,9 +136,9 @@ int main(){
                 std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
                 std::cout<<"2. Inscribirse\n";
-                std::cout<<"4. Anular asistencia\n";
-                std::cout<<"5. Cerrar sesión\n";//funcion de iniciar sesión
-                std::cout<<"6. Salir de la aplicación\n\n";
+                //std::cout<<"4. Anular asistencia\n";
+                std::cout<<"3. Cerrar sesión\n";//funcion de iniciar sesión
+                std::cout<<"4. Salir de la aplicación\n\n";
                 std::cout<<"Opción: ";
                 std::cin>>hacer;
                 switch(hacer){
@@ -170,23 +168,11 @@ int main(){
                         break;
 
                     case 3:
-
-                        
+                        status=0;                       
                         break;
-                    
+ 
                     case 4:
-
-                        
-                        break;
-
-                    case 5:
-                        status=0;
-                        
-                        break;
-                    case 6:
-                        
-                        terminar=true;
-                        
+                        terminar=true; 
                         break;
                     
                     default:
@@ -200,10 +186,10 @@ int main(){
             case 2://Director academico
                 std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
-                std::cout<<"2. Generar actividades\n";
-                std::cout<<"4. Editar Actividades\n";
-                std::cout<<"5. Cerrar sesión\n";//funcion de iniciar sesión
-                std::cout<<"6. Salir de la aplicación\n\n";
+                //std::cout<<"2. Generar actividades\n";
+                //std::cout<<"4. Editar Actividades\n";
+                std::cout<<"2. Cerrar sesión\n";//funcion de iniciar sesión
+                std::cout<<"3. Salir de la aplicación\n\n";
                 std::cout<<"Opción: ";
                 std::cin>>hacer;
                 switch(hacer){
@@ -213,31 +199,13 @@ int main(){
                         break;
 
                     case 2:
-
-                        
+                        status=0;
                         break;
 
                     case 3:
-
-                        
-                        break;
-                    
-                    case 4:
-
-                        
-                        break;
-                    
-                    case 5:
-
-                        status=0;
-                        break;
-                        
-                    case 6:
-                        
                         terminar=true;
-                        
                         break;
-                    
+
                     default:
                         std::cout<<"Funcion no valida, por favor, inserte una opción que valga\n";
                         //std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -249,14 +217,14 @@ int main(){
             case 3://Organizador
                 std::cout<<"Eliga una opción:\n";
                 std::cout<<"1.Ver actividades propuestas\n";//funcion consultarActividades
-                std::cout<<"2. Crear actividad\n";
-                std::cout<<"3. Actualizar Acividad\n";
-                std::cout<<"4. Eliminar Actividad\n";
-                std::cout<<"5. Mostrar actividad\n";
-                std::cout<<"6. Crear MailLit\n";
-                std::cout<<"7. Generar fichero asistencia\n";
-                std::cout<<"8. Cerrar sesión\n";//funcion de iniciar sesión
-                std::cout<<"9. Salir de la aplicación\n\n";
+                //std::cout<<"2. Crear actividad\n";
+                //std::cout<<"3. Actualizar Acividad\n";
+                //std::cout<<"4. Eliminar Actividad\n";
+                std::cout<<"2. Activar actividad\n";
+                //std::cout<<"6. Crear MailLit\n";
+                std::cout<<"3. Generar fichero asistencia\n";
+                std::cout<<"4. Cerrar sesión\n";//funcion de iniciar sesión
+                std::cout<<"5. Salir de la aplicación\n\n";
                 std::cout<<"Opción: ";
                 std::cin>>hacer;
                 switch(hacer){
@@ -266,34 +234,22 @@ int main(){
                         break;
 
                     case 2:
-
-                        
+                        MostrarActividad();
                         break;
 
                     case 3:
-
-                        
-                        break;
-                    
-                    case 5:
-                        MostrarActividad();
-                        break;
-                    
-                    case 7:
                         std::cout<<"En cual actividad quiere obtener la asistencia: \n";
                         std::cin>>accion;
                         cliente3->GenerarAsistencia(accion);
-
                         
                         break;
-                    case 8:
+                    
+                    case 4:
                         status=0;
                         break;
-                        
-                    case 9:
-                        
+                    
+                    case 5:
                         terminar=true;
-                        
                         break;
                     
                     default:
