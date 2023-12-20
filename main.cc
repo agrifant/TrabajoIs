@@ -6,6 +6,7 @@
 #include "UsuarioRegistrado.h"
 #include "organizador.h"
 #include "DirectorAcademico.h"
+#include "actividad.h"
 #include <string>
 #include <fstream>
 #include <vector>
@@ -47,15 +48,17 @@ bool inciarSesion(std::string usuario, std::string password){
             if((stoi(datos[0])==1)){
                 strcpy(dni,datos[5].c_str());
                 cliente=new UsuarioRegistrado(ip,datos[3],datos[4],dni,datos[6]);
-                std::cout<<cliente->GetDNI()<<"\n";
+                std::cout<<"Buenas "<<cliente->GetNombre()<<"\n";
             }
             if((stoi(datos[0])==2)){
                 strcpy(dni,datos[6].c_str());
                 cliente2 =new DirectorAcademico(ip,datos[3],datos[4],datos[5],dni,datos[7], datos[8]);
+                std::cout<<"Buenas director academico "<<cliente2->GetNombre()<<"\n";
             }
             if((stoi(datos[0])==3)){
                 strcpy(dni,datos[6].c_str());
                 cliente3= new Organizador(ip,datos[3],datos[4],datos[5],dni);
+                std::cout<<"Buenas organizador "<<cliente3->GetNombre()<<"\n";
             }            
             archivo.close();
             return true;
@@ -86,6 +89,8 @@ int main(){
     std::string password;
     Usuario u(ip);
     while(terminar==false){
+        std::vector<Actividad> lista_activos= VectorConActividadesActivas();
+        int s=1;
         switch(status){
             case 0://Usuario no registrado
                 std::cout<<"Eliga una opción:\n";
@@ -146,13 +151,20 @@ int main(){
 
                     case 2:
                         std::cout<<"En cual actividad se quiere inscribir: \n";
-                        std::cin>>accion;
-                        
-                        if(cliente->inscribirse(accion)==false){
-                            std::cout<<("Hubo un error\n");
-                        }else{
-                            std::cout<<("Todo se realizo correctamente\n");
+                        for(auto & i: lista_activos){
+                            if(i.GetAforo()==i.GetnParticipantes()){
+                                std::cout<<s<<"."<<i.GetNombre()<<" (Lleno)\n";
+                                s++; 
+                            }else{
+                                std::cout<<s<<"."<<i.GetNombre()<<"\n";
+                                s++;
+                            }
                         }
+                        std::cin>>accion;
+                        if(cliente->inscribirse(accion)==true){
+                            std::cout<<"Inscripcion realizada con exito \n";
+                        }
+                        
 
                         
                         break;
@@ -263,6 +275,10 @@ int main(){
                         
                         break;
                     
+                    case 5:
+                        MostrarActividad();
+                        break;
+                    
                     case 7:
                         std::cout<<"En cual actividad quiere obtener la asistencia: \n";
                         std::cin>>accion;
@@ -292,7 +308,7 @@ int main(){
                 std::cout<<"Se a producido un error, lamentamos las molestias\n";
         }
         if(terminar!=true){
-            std::cout<<"Pulsa cualquier tecla para continuar\n";
+            std::cout<<"\n----Pulsa cualquier tecla para continuar-----\n";
             std::cin.get();
             std::cin.get();
             std::cout<<"\n\n";

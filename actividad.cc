@@ -181,7 +181,7 @@ std::vector<std::string> split(std::string str, char pattern) {
 void MostrarActividad(){
     std::vector<Actividad> actividades = VectorConActividades();
     int id;
-
+    bool encontrado=false;
     for(auto& i: actividades){
         if(i.GetActivar()!=0 && i.GetActivar() !=1){
             std::cout<<"Error al indicar si una actividad está habilitada al público.\n";
@@ -198,8 +198,16 @@ void MostrarActividad(){
     std::cin>> id;
 
     for(auto& i: actividades){
-        if(id==i.GetActivar()){
+        if(id==i.GetId()){
+            encontrado==true;
             i.setActivar(1);
         }
+    }
+    if(encontrado ==false){
+        std::cout<<"actividad no valida\n";
+    }
+    //guardamos los cambios en l abase de datos
+    if(guardarVectorActividades(actividades)==false){
+        std::cout<<"Error al guardar las actividades en el fichero\n";
     }
 }
