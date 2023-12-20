@@ -62,9 +62,9 @@ class Actividad{
         void Mostrar_Calendario();
         void Mostrar_Info_Calendario();
         void anadirParticipantes(char dni[10]);
-        void MostrarActividad();
 };
 
+void MostrarActividad();
 std::vector<Actividad> VectorConActividades();
 std::vector<std::string> split(std::string str, char pattern);
 bool guardarVectorActividades(std::vector<Actividad> datos);
