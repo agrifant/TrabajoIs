@@ -28,7 +28,7 @@ bool inciarSesion(std::string usuario, std::string password){
     struct usuariosBd usus;
     std::string linea;
     std::vector<std::string>datos;
-    std::ifstream archivo("../bd/usuarios.txt");
+    std::ifstream archivo("bd/usuarios.txt");
     if(!archivo.is_open()){
         std::cout<<"Erro interno, sentimos las molestias\n";
         return false;
@@ -173,6 +173,8 @@ int main(){
  
                     case 4:
                         terminar=true; 
+                        status=0;
+                        
                         break;
                     
                     default:
@@ -201,7 +203,12 @@ int main(){
                     case 2:
                         status=0;
                         break;
+                    
+                    case 2:
 
+                        status=0;
+                        break;
+                        
                     case 3:
                         terminar=true;
                         break;
@@ -222,6 +229,7 @@ int main(){
                 //std::cout<<"4. Eliminar Actividad\n";
                 std::cout<<"2. Activar actividad\n";
                 //std::cout<<"6. Crear MailLit\n";
+                std::cout<<"2. Mostrar actividad\n";
                 std::cout<<"3. Generar fichero asistencia\n";
                 std::cout<<"4. Cerrar sesión\n";//funcion de iniciar sesión
                 std::cout<<"5. Salir de la aplicación\n\n";
@@ -238,16 +246,27 @@ int main(){
                         break;
 
                     case 3:
-                        std::cout<<"En cual actividad quiere obtener la asistencia: \n";
-                        std::cin>>accion;
-                        cliente3->GenerarAsistencia(accion);
+                    std::cout<<"FUNCION PARA MOSTAR ACTIVIDADES: \n";
                         
                         break;
+
+
                     
+                    case 3:
+                        std::cout<<"En cual actividad quiere obtener la asistencia: \n";
+                        for(auto& i: actividades)
+                        {
+                        std::cout<<"- La actividad " << i.GetNombre() << " con ID " << i.GetId() <<std::endl;
+                        }
+                        std::cout<<"Introduzca el Id de la Actividad que quiere saber la asistencia: \n";
+                        std::cin>>accion;
+                        cliente3->GenerarAsistencia(accion);
+
+                        break;
                     case 4:
                         status=0;
                         break;
-                    
+                        
                     case 5:
                         terminar=true;
                         break;
