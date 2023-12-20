@@ -221,7 +221,7 @@ int main(){
                 //std::cout<<"3. Actualizar Acividad\n";
                 //std::cout<<"4. Eliminar Actividad\n";
                 //std::cout<<"6. Crear MailLit\n";
-                std::cout<<"2. Mostrar actividad\n";
+                std::cout<<"2. Activar actividad\n";
                 std::cout<<"3. Generar fichero asistencia\n";
                 std::cout<<"4. Cerrar sesión\n";//funcion de iniciar sesión
                 std::cout<<"5. Salir de la aplicación\n\n";
@@ -240,7 +240,7 @@ int main(){
                         std::cout<<"En cual actividad quiere obtener la asistencia: \n";
                         for(auto& i: actividades)
                         {
-                        std::cout<<"- La actividad " << i.GetNombre() << " con ID " << i.GetId() <<std::endl;
+                        std::cout<<"- La actividad " << i.GetNombre() << " con ID " << i.GetId()<<" tiene "<<i.GetnParticipantes()<<" participantes"<<std::endl;
                         }
                         std::cout<<"Introduzca el Id de la Actividad que quiere saber la asistencia: \n";
                         std::cin>>accion;

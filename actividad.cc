@@ -203,9 +203,6 @@ void MostrarActividad(){
             i.setActivar(1);
         }
     }
-    if(encontrado ==false){
-        std::cout<<"actividad no valida\n";
-    }
     //guardamos los cambios en l abase de datos
     if(guardarVectorActividades(actividades)==false){
         std::cout<<"Error al guardar las actividades en el fichero\n";

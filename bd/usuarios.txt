@@ -4,4 +4,4 @@
 1|a|a|Fernando|Lopez Bellido|2111111B|correo
 1|b|b|Antonio|Rodriguez Lopez|31111111C|correo
 2|c|c|Ana|Predosa RERE|carrera|41111111D|correo|departamento
-3|d|d|Maria|Nunez Fernandez|51111111E|correo
+3|d|d|Maria|Nunez Fernandez|5111111B|correo
