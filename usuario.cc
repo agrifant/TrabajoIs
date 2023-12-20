@@ -56,7 +56,11 @@ void Usuario::ConsultarActividades(int status) {
     actividades.shrink_to_fit();//Elimino los espacios del vector vacios
     for (int i = 0; i<contador;i++)//Creo un menu con el For
         {
-            std::cout<<(i+1)<<". "<<actividades[i].GetNombre()<<std::endl;
+            if(actividades[i].GetActivar()==0){
+                std::cout<<(i+1)<<". "<<actividades[i].GetNombre()<<" (No activa)"<<std::endl;
+            }else{
+                std::cout<<(i+1)<<". "<<actividades[i].GetNombre()<<std::endl;
+            }         
         }
     
     std::cout<<"Que actividad quieres visitar: ";
