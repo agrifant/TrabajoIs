@@ -70,5 +70,6 @@ std::vector<std::string> split(std::string str, char pattern);
 bool guardarVectorActividades(std::vector<Actividad> datos);
 std::vector<Actividad> VectorConActividadesActivas();
 int actividadesActivas();
+int actividadesTodas();
 
 #endif

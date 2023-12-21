@@ -197,14 +197,28 @@ void MostrarActividad(){
     std::cout<< "Escribe el Identificador de la actividad que quieres habilitar:\n";
     std::cin>> id;
 
-    for(auto& i: actividades){
-        if(id==i.GetId()){
-            encontrado==true;
-            i.setActivar(1);
+    if(id>actividadesTodas() || id<=0){
+        std::cout<<"Actividad inexistente\n";
+    }else{
+        for(auto& i: actividades){
+            if(id==i.GetId()){
+                encontrado==true;
+                i.setActivar(1);
+            }
         }
+        //guardamos los cambios en l abase de datos
+        if(guardarVectorActividades(actividades)==false){
+            std::cout<<"Error al guardar las actividades en el fichero\n";
+        }    
     }
-    //guardamos los cambios en l abase de datos
-    if(guardarVectorActividades(actividades)==false){
-        std::cout<<"Error al guardar las actividades en el fichero\n";
+    
+}
+
+int actividadesTodas(){
+    std::vector<Actividad> todasActividades=VectorConActividades();
+    int cont=0;
+    for(auto & i:todasActividades){
+        cont++;
     }
+    return cont;
 }

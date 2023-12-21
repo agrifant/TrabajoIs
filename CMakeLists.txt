@@ -51,19 +51,27 @@ add_executable(organizador-test
     UsuarioRegistrado.cc
 )
 
+add_executable(Mostrar-test
+    TestOrganizador.cc
+    actividad.cc
+)
+
 # Enlazar con la biblioteca Google Test
 target_link_libraries(inscribirse-test PRIVATE GTest::GTest)
 target_link_libraries(usuario-test PRIVATE GTest::GTest)
 target_link_libraries(organizador-test PRIVATE GTest::GTest)
+target_link_libraries(Mostrar-test PRIVATE GTest::GTest)
 
 # Configurar el ejecutable principal como dependencia de los tests
 add_dependencies(inscribirse-test programa)
 add_dependencies(usuario-test programa)
 add_dependencies(organizador-test programa)
+add_dependencies(Mostrar-test programa)
 
 # Configurar el comando de prueba para ejecutar los tests
 add_test(NAME inscribirse-gtests COMMAND inscribirse-test)
 add_test(NAME usuario-gtests COMMAND usuario-test)
 add_test(NAME organizador-gtests COMMAND organizador-test)
+add_test(NAME Mostrar-gtests COMMAND Mostrar-test)
 
 
