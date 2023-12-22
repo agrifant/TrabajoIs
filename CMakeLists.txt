@@ -52,7 +52,7 @@ add_executable(organizador-test
 )
 
 add_executable(Mostrar-test
-    TestOrganizador.cc
+    TestMostrar.cc
     actividad.cc
 )
 

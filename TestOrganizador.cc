@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 
+
 TEST(Organizador,GenerarAsistencia1){
     Organizador organizador("1");
     EXPECT_TRUE(organizador.GenerarAsistencia(6));
