@@ -114,20 +114,25 @@ bool guardarVectorActividades(std::vector<Actividad> datos){
             archivo<<i->GetMaterial_necesario()<<"|";
             archivo<<i->GetnParticipantes()<<"|";
             archivo<<i->GetActivar()<<"|";
-            std::vector <std::string> lista=i->GetLista_participantes();
-            for(auto b=lista.begin(); b!=lista.end(); b++){
-                if(b==(lista.end()-1) && i==(datos.end()-1)){ 
-                    archivo<<*b;
-                }else{
-                    if(b==(lista.end()-1)){
-                        archivo<<*b<<"\n";
+            if(i->GetnParticipantes()==0 && (datos.end()-1)!=i){
+                archivo<<"\n";
+            }else{
+                std::vector <std::string> lista=i->GetLista_participantes();
+                for(auto b=lista.begin(); b!=lista.end(); b++){
+                    if(b==(lista.end()-1) && i==(datos.end()-1)){ 
+                        archivo<<*b;
                     }else{
-                        archivo<<*b<<"%";
+                        if(b==(lista.end()-1)){
+                            archivo<<*b<<"\n";
+                        }else{
+                            archivo<<*b<<"%";
+                        }
+                        
                     }
                     
-                }
-                
+                }    
             }
+            
             
         }
 
@@ -197,20 +202,18 @@ void MostrarActividad(){
     std::cout<< "Escribe el Identificador de la actividad que quieres habilitar:\n";
     std::cin>> id;
 
-    if(id>actividadesTodas() || id<=0){
-        std::cout<<"Actividad inexistente\n";
-    }else{
-        for(auto& i: actividades){
-            if(id==i.GetId()){
-                encontrado==true;
-                i.setActivar(1);
-            }
+    
+    for(auto i=actividades.begin(); i!=actividades.end(); i++){
+        if(id==i->GetId()){
+            encontrado==true;
+            i->setActivar(1);
         }
-        //guardamos los cambios en l abase de datos
-        if(guardarVectorActividades(actividades)==false){
-            std::cout<<"Error al guardar las actividades en el fichero\n";
-        }    
     }
+    //guardamos los cambios en l abase de datos
+    if(guardarVectorActividades(actividades)==false){
+        std::cout<<"Error al guardar las actividades en el fichero\n";
+    }    
+    
     
 }
 

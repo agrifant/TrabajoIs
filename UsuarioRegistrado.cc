@@ -18,7 +18,7 @@ bool UsuarioRegistrado::inscribirse(int id_){
     }
     //aberiguamos la actividad que nos ha enviado
     int cont=0;
-    for(auto i=datos.begin(); cont!=id_ && datos.end()!=i ;i++){
+    for(auto i=datos.begin(); datos.end()!=i ;i++){
         if(i->GetActivar()==0){
             id++;
         }else{
