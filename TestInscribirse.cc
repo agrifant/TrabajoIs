@@ -9,7 +9,7 @@
 TEST(UsuarioRegistrado,Inscribirse1){
     char dni[10]="57777777Y";
     UsuarioRegistrado alumno("100/100/100","Carlos","ENriquez",dni,"correo.@gmail.com");
-    Actividad p1(1, "Aitor","nada", "nada", "nada",10, "nada","nada","nada","nada",0,{},1), p2(2, "Carlos","nada", "nada", "nada",10, "nada","nada","nada","nada",0,{},1), p3(3, "Fernando","nada", "nada", "nada",10, "nada","nada","nada","nada",0,{},1);
+    Actividad p1(10, "Aitor","nada", "nada", "nada",10, "nada","nada","nada","nada",0,{},1), p2(20, "Carlos","nada", "nada", "nada",10, "nada","nada","nada","nada",0,{},1), p3(30, "Fernando","nada", "nada", "nada",10, "nada","nada","nada","nada",0,{},1);
     std::vector <Actividad> act{p1,p2,p3};
     guardarVectorActividades(act);
     EXPECT_TRUE(alumno.inscribirse(1));
