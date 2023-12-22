@@ -12,8 +12,10 @@ bool UsuarioRegistrado::inscribirse(int id_){
     std::vector<Actividad> lista_activos= VectorConActividadesActivas();
     int id=id_;
     int cont=0;
+
     //aberiguamos la actividad que nos ha enviado
     for(auto i=datos.begin(); datos.end()!=i && cont!=id ;i++){
+
         if(i->GetActivar()==0){
             id++;
         }
